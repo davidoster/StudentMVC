@@ -35,4 +35,21 @@ public class StudentController {
         return("studentlist");
     }
     
+    // get form for new student
+    @RequestMapping("/new")
+    public String newStudent(ModelMap view) {
+        Student student = new Student();
+        view.addAttribute("student", student);
+        return "newstudent";
+    }
+    
+    
+    public String saveStudent(ModelMap view) {
+//        studentService.save();
+        view.addAttribute("message", new String("All good!"));
+        return "newstudent";
+    }
+    
+    
+    
 }
