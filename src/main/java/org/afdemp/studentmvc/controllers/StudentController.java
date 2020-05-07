@@ -31,7 +31,7 @@ public class StudentController {
     @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
     public String listAllStudents(ModelMap view) {
         List<Student> students  = studentService.findAllStudents();
-//        view.addAttribute("students", students);
+        view.addAttribute("students", students);
         return("studentlist");
     }
     
