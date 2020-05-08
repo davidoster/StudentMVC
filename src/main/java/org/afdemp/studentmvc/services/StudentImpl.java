@@ -36,5 +36,20 @@ public class StudentImpl implements IStudent {
     public boolean delete(int id) {
         return dao.delete(id);
     }
+
+    public boolean update(Student student) {
+        student.setFirstName(convertTextToUpper(student.getFirstName()));
+        student.setLastName(convertTextToUpper(student.getLastName()));
+        dao.update(student);
+        return true;
+    }
+
+    public Student findById(int id) {
+        return dao.findById(id);
+    }
+    
+    protected String convertTextToUpper(String text) {
+        return text.toUpperCase();
+    }
     
 }

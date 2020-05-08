@@ -27,6 +27,7 @@ public class StudentController {
     private String listurl = "list";
     private String editurl = "edit";
     private String deleteurl = "delete";
+    private String updateurl = "update";
     
     @Autowired
     IStudent studentService;
@@ -75,6 +76,23 @@ public class StudentController {
         } else {
             view.addAttribute("msg", new String("Not Deleted!"));
         }
+        return("redirect:/list");
+    }
+    
+    // show edit / update for an existing student
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editStudent(ModelMap view, @PathVariable int id) {
+        Student student = studentService.findById(id);
+        view.addAttribute("student", student);
+        view.addAttribute("updateurl", updateurl);
+        return("editstudent");
+    }
+    
+    // store edit / update for an existing student
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateStudent(ModelMap view, Student student) {
+        studentService.update(student);
+        view.addAttribute("msg", new String(""));
         return("redirect:/list");
     }
     

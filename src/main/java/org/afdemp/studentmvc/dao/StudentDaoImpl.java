@@ -38,5 +38,25 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements ISt
         }
         return false;
     }
+
+    public Student findById(int id) {
+        Student s = getByKey(id);
+        if(s != null) {
+            return s;
+        }
+        return null;
+    }
+
+    public boolean update(Student student) {
+        Student db_student = findById(student.getId());
+        if(db_student != null) {
+            db_student.setFirstName(student.getFirstName());
+            db_student.setLastName(student.getLastName());
+            db_student.setDateOfBirth(student.getDateOfBirth());
+            db_student.setTuitionFees(student.getTuitionFees());
+            return save(db_student);
+        } else
+            return false;
+    }
     
 }
