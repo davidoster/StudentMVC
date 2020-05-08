@@ -14,5 +14,6 @@ import org.afdemp.studentmvc.entities.Student;
  */
 public interface IStudent {
     public List<Student> findAllStudents();
+    public boolean save(Student student);
     
 }

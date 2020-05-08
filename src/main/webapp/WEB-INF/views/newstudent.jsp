@@ -15,13 +15,14 @@
     </head>
     <body>
         <h1>Register a new Student</h1>
-        <form:form method="POST" action="newstudent" modelAttribute="student">
+        <form:form method="POST" action="new" modelAttribute="student">
             <form:input type="hidden" path="id" id="id"/>
             First Name: <form:input path="firstName" /><br />
             Last Name: <form:input path="lastName" /><br />
-            Date Of Birth : <form:input path="dateOfBirth" type="datetime-local" /><br />
+            Date Of Birth : <form:input path="dateOfBirth" type="text" /><br />
             Tuition Fees : <form:input path="tuitionFees" /><br />
             <input type="submit">
         </form:form>
+        <div id="msg">${message}</div>
     </body>
 </html>

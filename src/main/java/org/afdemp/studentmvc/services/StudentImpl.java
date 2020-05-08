@@ -28,5 +28,9 @@ public class StudentImpl implements IStudent {
         List<Student> students = dao.findAllStudents();
         return students;
     }
+
+    public boolean save(Student student) {
+        return dao.save(student);
+    }
     
 }

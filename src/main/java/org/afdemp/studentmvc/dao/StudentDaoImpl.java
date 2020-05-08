@@ -22,5 +22,11 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements ISt
         Criteria criteria = createEntityCriteria();
 	return (List<Student>) criteria.list();
     }
+
+    public boolean save(Student student) {
+        boolean notSaved = persist(student);
+        if(notSaved) return false;
+        return true;
+    }
     
 }

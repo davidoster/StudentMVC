@@ -43,10 +43,12 @@ public class StudentController {
         return "newstudent";
     }
     
-    
-    public String saveStudent(ModelMap view) {
-//        studentService.save();
-        view.addAttribute("message", new String("All good!"));
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public String saveStudent(ModelMap view, Student student) {
+        if(studentService.save(student))
+            view.addAttribute("message", new String("All good!"));
+        else
+            view.addAttribute("message", new String("All wrong!"));
         return "newstudent";
     }
     

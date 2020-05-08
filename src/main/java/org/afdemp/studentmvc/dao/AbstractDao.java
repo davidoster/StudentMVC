@@ -30,8 +30,9 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 		return (T) getSession().get(persistentClass, key);
 	}
 
-	public void persist(T entity) {
+	public boolean persist(T entity) {
 		getSession().persist(entity);
+                return getSession().isDirty();
 	}
 
 	public void delete(T entity) {
