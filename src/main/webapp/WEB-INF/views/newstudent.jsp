@@ -24,5 +24,6 @@
             <input type="submit">
         </form:form>
         <div id="msg">${message}</div>
+        <div id="list"><a href="<c:url value='/${listurl}' />">Back to the list of Students</a></div>
     </body>
 </html>

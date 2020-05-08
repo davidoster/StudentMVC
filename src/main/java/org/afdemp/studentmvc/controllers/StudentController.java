@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class StudentController {
+    private String listurl = "list";
+    
     @Autowired
     IStudent studentService;
     
@@ -40,15 +42,19 @@ public class StudentController {
     public String newStudent(ModelMap view) {
         Student student = new Student();
         view.addAttribute("student", student);
+        view.addAttribute("listurl", listurl);
         return "newstudent";
     }
     
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveStudent(ModelMap view, Student student) {
-        if(studentService.save(student))
+        if(studentService.save(student)) {
             view.addAttribute("message", new String("All good!"));
-        else
+        }
+        else {
             view.addAttribute("message", new String("All wrong!"));
+        }
+        view.addAttribute("listurl", listurl);
         return "newstudent";
     }
     
