@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class StudentController {
     private String listurl = "list";
+    private String editurl = "edit";
+    private String deleteurl = "delete";
     
     @Autowired
     IStudent studentService;
@@ -34,6 +36,8 @@ public class StudentController {
     public String listAllStudents(ModelMap view) {
         List<Student> students  = studentService.findAllStudents();
         view.addAttribute("students", students);
+        view.addAttribute("editurl", editurl);
+        view.addAttribute("deleteurl", deleteurl);
         return("studentlist");
     }
     

@@ -20,14 +20,13 @@
 		</tr>
 		<c:forEach items="${students}" var="student">
 			<tr>
-                            <td>${student.id}</td>
+                            <!-- edit: http://localhost:8081/edit/{id} -->
+                            <td><a href="<c:url value='${editurl}/${student.id}' />">${student.id}</a></td>
                             <td>${student.firstName}</td>
                             <td>${student.lastName}</td>
                             <td>${student.dateOfBirth}</td>
                             <td>${student.tuitionFees}</td>
-                        
-			<td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${employee.ssn}</a></td>
-			<td><a href="<c:url value='/delete-${employee.ssn}-employee' />">delete</a></td>
+                            <td><a href="<c:url value='${deleteurl}/${student.id}' />">delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
