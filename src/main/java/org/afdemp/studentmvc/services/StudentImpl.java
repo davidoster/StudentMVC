@@ -32,5 +32,9 @@ public class StudentImpl implements IStudent {
     public boolean save(Student student) {
         return dao.save(student);
     }
+
+    public boolean delete(int id) {
+        return dao.delete(id);
+    }
     
 }

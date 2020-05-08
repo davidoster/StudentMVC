@@ -15,5 +15,6 @@ import org.afdemp.studentmvc.entities.Student;
 public interface IStudentDao {
     public List<Student> findAllStudents();
     public boolean save(Student student);
+    public boolean delete(int id);
     
 }

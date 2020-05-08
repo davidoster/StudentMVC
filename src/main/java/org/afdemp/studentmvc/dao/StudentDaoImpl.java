@@ -28,5 +28,15 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements ISt
         if(notSaved) return false;
         return true;
     }
+
+    public boolean delete(int id) {
+        Student s = getByKey(id);
+        if(s != null) {
+            delete(s);
+            if(getByKey(id) == null) 
+                return true;
+        }
+        return false;
+    }
     
 }
